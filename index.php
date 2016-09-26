@@ -66,7 +66,7 @@
 	<div id="content_for_change"></div>
   <p class="formTitle">Форма заказа</p>
 <p class="msgs"></p>
-<form id="secondForm" class="form" autocomplete="off">
+<form id="formCallBack" class="form" autocomplete="off">
 
 	<fieldset class="form-fieldset ui-input __second">
 		<input name="uphone" type="tel" id="phone" tabindex="0"  placeholder="+7XXX-XX-XX-XXX" />
@@ -75,7 +75,7 @@
 	<input name="formInfo" class="formInfo" type="hidden" value=""/>
 
 	<div class="form-footer">
-		<input type="submit" class="formBtn" value="Обратный звонок" />
+		<input type="submit" class="formBtn" data-from="act" value="Обратный звонок" />
 	</div>
 	<p class="formCreator">С Вами свяжется специалист с 9:00 до 19:00</p>
 </form>
@@ -148,7 +148,7 @@
 					<li class="" data-content="merzaet"><a href="#">неприятный запах</a></li>
 					<li class=""><a class="linkButton input_button" data-remodal-target="secondModal" title="Заказ ремонта" data-content="Заказать ремонт">Заказать ремонт</a></li>
 				</ul>
-			</div>	
+			</div>
 		</section>
 		<div class="block_action">
 			<div class="container">
@@ -160,9 +160,9 @@
 					<p>ОСТАЛОСЬ ВСЕГО</p>
 					<script src="http://megatimer.ru/s/4a1664dfd22e2b160f7a985b0348d49b.js"></script>
 				</div>
-				<form id="ssecondForm" class="form" autocomplete="off">
+				<form id="trueCallBack" class="form" autocomplete="off">
 						<input name="uphone" type="tel" class="phone" tabindex="0"  placeholder="+7XXX-XX-XX-XXX" />
-					<input title="Заказ по Акции" name="formInfo" class="linkButt formInfo" type="hidden" value=""/>
+					<input title="Заказ по Акции" name="trueFormInfo" class="linkButt formInfo" type="hidden" value="Обратный звонок из формы с акцией"/>
 						<input type="submit" class="linkButton input_button formBtn" value="Обратный звонок" />
 				</form>
 			</div>
@@ -460,7 +460,7 @@
 			</div>
 		</div>-->
 
-		
+
 	</section>
 	<div class="block_action">
 		<div class="container">
@@ -548,7 +548,7 @@
 							<p class="font-m">2014</p>
 						</div>
 					</a>-->
-				</li>								
+				</li>
 			</ul>
 		</div>
 
@@ -645,6 +645,6 @@
 	});
 </script>
 <script src="modalform/libs/remodal/remodal.min.js"></script>
-<script src="modalform/js/form.js"></script>
+<script src="modalform/js/form.js"></script> <!-- form script here-->
 </body>
 </html>

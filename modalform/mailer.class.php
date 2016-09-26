@@ -10,8 +10,9 @@ class Mailer {
     private $sender = 'remclimat.pro@yandex.ru';
 
     private $fields = [
-        'uphone'   => '<b>Телефон:</b>',
-        'formInfo' => '<b>Тема:</b>',
+        'uphone'       => '<b>Телефон:</b>',
+        'formInfo'     => '<b>Тема:</b>',
+        'trueFormInfo' => '<b>Тема:</b>', // temporary fix
     ];
 
     private $subject;
@@ -24,7 +25,7 @@ class Mailer {
 
     function __construct($post_data) {
         $this->fill_headers();
-        $this->subject = (isset($post_data['formInfo']) && !empty($post_data['formInfo'])) ? $post_data['formInfo'] : 'No subject!';
+        $this->subject = (isset($post_data['trueFormInfo']) && !empty($post_data['trueFormInfo'])) ? $post_data['trueFormInfo'] : 'No subject!';
         $this->fill_message($post_data);
         $this->send_email(implode(',', $this->recipients), $this->subject, $this->message, $this->headers);
     }
