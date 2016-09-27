@@ -51,8 +51,8 @@
 		<button data-remodal-action="close" class="remodal-close"></button>
 		<div class="formArea">
 			<div id="content_for_change"></div>
-			<p class="formTitle">Форма заказа</p>
-			<p class="msgs"></p>
+			<p class="formTitle">Форма заказа</p>:
+			<span class="msgs"></span>
 			<form id="formFromSideModal" class="form" autocomplete="off">
 
 				<fieldset class="form-fieldset ui-input __second">
@@ -135,6 +135,7 @@
 					$('a[data-from="left-side"]').on('click',function () {
 						var content = $(this).attr('data-content');
 						$('#changed_from_left').val(content);
+						$('#side_form .msgs').html(content);
 					})
 				</script>
 				<div class="img_fon"></div>
