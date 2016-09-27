@@ -6,7 +6,6 @@ class Mailer {
         'redhat.ua@gmail.com',
         '1986nekrasow@gmail.com',
         'Myskat_06@mail.ru',
-        s
     );
     private $sender = 'remclimat.pro@yandex.ru';
 
