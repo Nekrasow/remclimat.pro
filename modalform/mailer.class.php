@@ -2,22 +2,23 @@
 
 class Mailer {
 
-    private $recipients = [
+    private $recipients = array(
         'redhat.ua@gmail.com',
         '1986nekrasow@gmail.com',
         'Myskat_06@mail.ru',
-    ];
+        s
+    );
     private $sender = 'remclimat.pro@yandex.ru';
 
-    private $fields = [
+    private $fields = array(
         'uphone'       => '<b>Телефон:</b>',
         'formInfo'     => '<b>Тема:</b>',
         'trueFormInfo' => '<b>Тема:</b>', // temporary fix
-    ];
+    );
 
     private $subject;
 
-    private $headers = [];
+    private $headers = array();
 
     private $message;
 
@@ -31,24 +32,24 @@ class Mailer {
     }
 
     private function fill_headers() {
-        $headers = [
+        $headers = array(
             "From: " . $this->sender,
             "Reply-To: " . $this->sender,
             "MIME-Version: 1.0",
             "Content-Type: text/html;charset=utf-8",
             "Content-Transfer-Encoding: 8bit ",
-        ];
+        );
         $this->headers = implode(PHP_EOL, $headers);
     }
 
     private function fill_message(array $post_data) {
-        $message = [];
+        $message = array();
         foreach ($post_data as $key => $item) {
             if (array_key_exists($key, $this->fields)) {
-                $message[] .= implode(' ', [$this->fields[$key], $item]);
+                $message[] .= implode(' ', array($this->fields[$key], $item));
             }
         }
-        if ([] !== $message) {
+        if (array() !== $message) {
             $this->message = implode('<br />', $message);
         }
     }
