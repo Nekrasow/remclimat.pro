@@ -3,7 +3,6 @@
 class Mailer {
 
     private $recipients = array(
-        'redhat.ua@gmail.com',
         '1986nekrasow@gmail.com',
         'Myskat_06@mail.ru',
     );
@@ -13,9 +12,10 @@ class Mailer {
         'uphone'       => '<b>Телефон:</b>',
         'formInfo'     => '<b>Тема:</b>',
         'trueFormInfo' => '<b>Тема:</b>', // temporary fix
+        'leftFormInfo' => '<b>Тема:</b>', // left form
     );
 
-    private $subject;
+    private $subject = 'No Subject!';
 
     private $headers = array();
 
@@ -25,7 +25,12 @@ class Mailer {
 
     function __construct($post_data) {
         $this->fill_headers();
-        $this->subject = (isset($post_data['trueFormInfo']) && !empty($post_data['trueFormInfo'])) ? $post_data['trueFormInfo'] : 'No subject!';
+        if (isset($post_data['trueFormInfo'])) {
+            $this->subject = $post_data['trueFormInfo'];
+        }
+        if (isset($post_data['leftFormInfo'])) {
+            $this->subject = $post_data['leftFormInfo'];
+        }
         $this->fill_message($post_data);
         $this->send_email(implode(',', $this->recipients), $this->subject, $this->message, $this->headers);
     }

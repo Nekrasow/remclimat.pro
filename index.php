@@ -47,6 +47,27 @@
 		</div>
 	</div>
 
+	<div class="remodal" data-remodal-id="NewSecondModal" id="side_form" data-remodal-options="hashTracking: false,closeOnConfirm: false">
+		<button data-remodal-action="close" class="remodal-close"></button>
+		<div class="formArea">
+			<div id="content_for_change"></div>
+			<p class="formTitle">Форма заказа</p>
+			<p class="msgs"></p>
+			<form id="formFromSideModal" class="form" autocomplete="off">
+
+				<fieldset class="form-fieldset ui-input __second">
+					<input name="uphone" type="tel" class="phone" id="phone" tabindex="0"  placeholder="+7XXX-XX-XX-XXX" required/>
+				</fieldset>
+				<input type="hidden" value="default" name="leftFormInfo" id="changed_from_left">
+
+				<div class="form-footer">
+					<input type="submit" class="formBtn linkButton input_button" value="Обратный звонок" />
+				</div>
+				<p class="formCreator">С Вами свяжется специалист с 9:00 до 19:00</p>
+			</form>
+		</div>
+	</div>
+
 
 	<div class="loader">
 		<div class="project-loader">
@@ -90,16 +111,32 @@
 				<h1>кондиционеров и вентиляции</h1>
 				<a href="#services" class="arrow go-to godown">все для Вас</a>
 				<ul class="left_slider">
-					<li><a href="#">любая услуга</a></li>
-					<li><a href="#">обслуживание</a></li>
-					<li><a href="#">дезинфекция</a></li>
-					<li><a href="#">монтаж</a></li>
-					<li><a href="#">чистка</a></li>
-					<li><a href="#">заправка</a></li>
-					<li><a href="#">демонтаж</a></li>
-					<li><a href="#">профилактика</a></li>
-					<li><a class="linkButton input_button formBtn" data-remodal-target="secondModal" title="Заказ услуги" data-content="Заказать услугу">Заказать услугу</a></li>
+					<?php
+					$left_side = array(
+						'любая услуга',
+						'обслуживание',
+						'дезинфекция',
+						'монтаж',
+						'чистка',
+						'заправка',
+						'демонтаж',
+						'профилактика',
+					);
+					?>
+
+					<?php foreach ($left_side as $row) { ?>
+					<li>
+						<a role="button" data-from="left-side" data-content="<?php echo $row;?>"><?php echo $row; ?></a>
+					</li>
+					<?php } ?>
+					<li><a class="linkButton input_button formBtn" data-remodal-target="NewSecondModal" title="Заказ услуги" data-content="Заказать услугу">Заказать услугу</a></li>
 				</ul>
+				<script>
+					$('a[data-from="left-side"]').on('click',function () {
+						var content = $(this).attr('data-content');
+						$('#changed_from_left').val(content);
+					})
+				</script>
 				<div class="img_fon"></div>
 				<ul class="right_slider">
 					<li><a href="#">ремонт кондиционера?</a></li>
